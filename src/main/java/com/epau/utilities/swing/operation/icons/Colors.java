@@ -1,4 +1,4 @@
-package com.epau.utilities.swing;
+package com.epau.utilities.swing.operation.icons;
 
 import java.awt.Color;
 

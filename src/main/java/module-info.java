@@ -4,7 +4,7 @@ module com.epau.utilities.swing.operation {
 
 	requires static org.jetbrains.annotations;
 	requires com.formdev.flatlaf;
-	requires com.formdev.flatlaf.extras;
+	requires transitive com.formdev.flatlaf.extras;
 	requires com.github.weisj.jsvg;
 
 	exports com.epau.utilities.swing.operation;

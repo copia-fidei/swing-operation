@@ -1,10 +1,10 @@
 package com.epau.utilities.swing.operation;
 
-import com.epau.utilities.swing.Icons;
+import com.epau.utilities.swing.operation.icons.Icons;
 import com.epau.utilities.nls.Nls;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 
-/// Gives you an icon or description for a {@link OperationStatus}.
+/// Provides icon or description for an {@link OperationStatus}.
 public class OperationStatusPresentation {
 
 	private final static int SIZE = 16;
