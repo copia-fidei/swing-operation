@@ -1,4 +1,4 @@
-package com.epau.utilities.swing.operation.icons;
+package com.epau.util.swing.operation.icons;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.formdev.flatlaf.extras.FlatSVGIcon.ColorFilter;
@@ -9,11 +9,11 @@ import java.awt.Color;
 @NonNls
 public interface Icons {
 
-	String HOURGLASS_ICON_PATH = "com/epau/utilities/swing/icons/svgrepo/hourglass-done-svgrepo-com.svg";
-	String COGWHEEL_ICON_PATH  = "com/epau/utilities/swing/icons/svgrepo/cogwheel-configuration-gear-svgrepo-com.svg";
-	String CANCEL_ICON_PATH    = "com/epau/utilities/swing/icons/svgrepo/cancel-svgrepo-com.svg";
-	String CHECK_ICON_PATH     = "com/epau/utilities/swing/icons/svgrepo/check-circle-svgrepo-com.svg";
-	String WARNING_ICON_PATH   = "com/epau/utilities/swing/icons/svgrepo/warning-filled-svgrepo-com.svg";
+	String HOURGLASS_ICON_PATH = "com/epau/util/swing/operation/icons/svgrepo/hourglass-done-svgrepo-com.svg";
+	String COGWHEEL_ICON_PATH  = "com/epau/util/swing/operation/icons/svgrepo/cogwheel-configuration-gear-svgrepo-com.svg";
+	String CANCEL_ICON_PATH    = "com/epau/util/swing/operation/icons/svgrepo/cancel-svgrepo-com.svg";
+	String CHECK_ICON_PATH     = "com/epau/util/swing/operation/icons/svgrepo/check-circle-svgrepo-com.svg";
+	String WARNING_ICON_PATH   = "com/epau/util/swing/operation/icons/svgrepo/warning-filled-svgrepo-com.svg";
 
 	static FlatSVGIcon hourglass(int size) {
 		return new FlatSVGIcon(HOURGLASS_ICON_PATH, size, size);

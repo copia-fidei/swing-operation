@@ -1,6 +1,6 @@
-package com.epau.utilities.swing.operation;
+package com.epau.util.swing.operation;
 
-import com.epau.utilities.nls.Nls;
+import com.epau.util.nls.Nls;
 
 /// represents a non-zero exit code of a process
 public class ErrorCode extends Exception {

@@ -1,7 +1,7 @@
-package com.epau.utilities.swing.operation;
+package com.epau.util.swing.operation;
 
-import com.epau.utilities.swing.operation.icons.Icons;
-import com.epau.utilities.nls.Nls;
+import com.epau.util.swing.operation.icons.Icons;
+import com.epau.util.nls.Nls;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 
 /// Provides icon or description for an {@link OperationStatus}.

@@ -1,6 +1,6 @@
-package com.epau.utilities.swing.operation;
+package com.epau.util.swing.operation;
 
-import com.epau.utilities.nls.Nls;
+import com.epau.util.nls.Nls;
 
 /**
  * A counter that maps the processing of a fixed number of items to a progress range between 0 and 100.

@@ -1,4 +1,4 @@
-package com.epau.utilities.swing.operation;
+package com.epau.util.swing.operation;
 
 import java.util.List;
 

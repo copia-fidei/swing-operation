@@ -1,6 +1,6 @@
-package com.epau.utilities.swing.operation.examples;
+package com.epau.util.swing.operation.examples;
 
-import com.epau.utilities.swing.operation.Operation;
+import com.epau.util.swing.operation.Operation;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 

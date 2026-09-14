@@ -1,9 +1,9 @@
-package com.epau.utilities.swing.operation.demos;
+package com.epau.util.swing.operation.demos;
 
-import com.epau.utilities.swing.operation.Operation;
-import com.epau.utilities.swing.operation.OperationListener;
-import com.epau.utilities.swing.operation.OperationStatus;
-import com.epau.utilities.swing.operation.examples.WaitOperation;
+import com.epau.util.swing.operation.Operation;
+import com.epau.util.swing.operation.OperationListener;
+import com.epau.util.swing.operation.OperationStatus;
+import com.epau.util.swing.operation.examples.WaitOperation;
 import org.jetbrains.annotations.NonNls;
 
 import javax.swing.JButton;
@@ -15,20 +15,13 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.List;
 
-import static com.epau.utilities.swing.operation.OperationStatus.*;
-import static com.epau.utilities.swing.operation.OperationStatus.CANCELLED_BY_USER;
-import static com.epau.utilities.swing.operation.OperationStatus.COMPLETED;
-import static com.epau.utilities.swing.operation.OperationStatus.ERROR;
-import static com.epau.utilities.swing.operation.OperationStatusPresentation.getDescription;
+import static com.epau.util.swing.operation.OperationStatusPresentation.getDescription;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
 import static java.lang.System.lineSeparator;
-import static java.lang.Thread.currentThread;
-import static java.util.concurrent.TimeUnit.SECONDS;
 import static javax.swing.SwingUtilities.invokeLater;
 
 @NonNls
