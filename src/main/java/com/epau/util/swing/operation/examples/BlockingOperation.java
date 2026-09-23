@@ -4,7 +4,7 @@ import com.epau.util.swing.operation.Operation;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-/// An example operations for testing that blocks forever.
+/// An example operation for testing that blocks forever.
 public class BlockingOperation extends Operation {
 
 	public BlockingOperation(String title, String description) {
