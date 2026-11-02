@@ -42,11 +42,11 @@ public abstract class Operation extends SwingWorker<String, String> implements P
 		this.addPropertyChangeListener(this);
 	}
 
-	public OperationStatus getStatus() {
+	public OperationStatus status() {
 		return status;
 	}
 
-	public List<String> getLogs() {
+	public List<String> logs() {
 		return new ArrayList<>(logs);
 	}
 
@@ -120,11 +120,11 @@ public abstract class Operation extends SwingWorker<String, String> implements P
 		}
 	}
 
-	public String getTitle() {
+	public String title() {
 		return title;
 	}
 
-	public String getDescription() {
+	public String description() {
 		return description;
 	}
 
@@ -159,5 +159,9 @@ public abstract class Operation extends SwingWorker<String, String> implements P
 
 	public Result execute(ProcessBuilder pb) throws IOException, InterruptedException {
 		return execute(pb.start());
+	}
+
+	public Result execute(String... command) throws IOException, InterruptedException {
+		return execute(new ProcessBuilder(command));
 	}
 }

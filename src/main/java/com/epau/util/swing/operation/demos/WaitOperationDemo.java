@@ -21,6 +21,7 @@ import static com.epau.util.swing.operation.OperationStatusPresentation.getDescr
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.BorderLayout.NORTH;
 import static java.awt.BorderLayout.SOUTH;
+import static java.lang.String.join;
 import static java.lang.System.lineSeparator;
 import static javax.swing.SwingUtilities.invokeLater;
 
@@ -29,7 +30,7 @@ class WaitOperationDemo {
 
 	static void main() {
 		class TestFrame extends JFrame implements OperationListener  {
-			final JLabel    progress     = new JLabel("Progress: 0"); //NON-NLS
+			final JLabel progress = new JLabel("Progress: 0"); //NON-NLS
 			final JTextArea textArea     = new JTextArea();
 			final JButton   cancelButton = new JButton("Cancel"); //NON-NLS
 
@@ -44,16 +45,16 @@ class WaitOperationDemo {
 				operation.addListener(this);
 				cancelButton.addActionListener(_ -> operation.cancel(true));
 
-				textArea.setText(getDescription(operation.getStatus()) + lineSeparator());
+				textArea.setText(getDescription(operation.status()) + NEW_LINE);
 			}
 
 			@Override
 			public void statusChanged(OperationStatus status) {
-				textArea.append(getDescription(status) + lineSeparator());
+				textArea.append(getDescription(status) + NEW_LINE);
 
 				switch (status) {
 					case COMPLETED, CANCELLED_BY_USER, ERROR -> {
-						textArea.append("Operation completed successfully." + lineSeparator()); //NON-NLS
+						textArea.append("Operation completed successfully." + NEW_LINE); //NON-NLS
 
 						dispose();
 					}
@@ -67,8 +68,9 @@ class WaitOperationDemo {
 
 			@Override
 			public void intermediateResults(List<String> intermediateResults) {
-				textArea.append(String.join(lineSeparator(), intermediateResults) + lineSeparator());
+				textArea.append(join(NEW_LINE, intermediateResults) + NEW_LINE);
 			}
+			private static final String NEW_LINE = lineSeparator();
 		}
 		var operation = new WaitOperation(10, true);
 		invokeLater(() -> {
