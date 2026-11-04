@@ -1,6 +1,7 @@
 package com.epau.util.swing.operation;
 
 import javax.swing.SwingWorker;
+import java.awt.GraphicsEnvironment;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.IOException;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static java.util.logging.Logger.getLogger;
@@ -51,7 +53,11 @@ public abstract class Operation extends SwingWorker<String, String> implements P
 	}
 
 	public void println(String line) {
-		publish(line + "\n");
+		if (GraphicsEnvironment.isHeadless()) {
+			IO.println(line);
+		} else {
+			publish(line + "\n");
+		}
 	}
 
 	@Override
@@ -77,6 +83,7 @@ public abstract class Operation extends SwingWorker<String, String> implements P
 		listeners.forEach(l -> l.progressChanged(getProgress()));
 	}
 
+
 	@Override
 	protected void done() {
 		if (isCancelled()) {
@@ -91,10 +98,37 @@ public abstract class Operation extends SwingWorker<String, String> implements P
 		} catch (ExecutionException e) {
 			fireOperationStatusChanged(OperationStatus.ERROR);
 
-			// This should prevent the exception type from being included
+			// This should prevent the exception type from being included in the message
 			var cause = e.getCause();
-			process(List.of(cause != null ? cause.getLocalizedMessage() : e.getLocalizedMessage()));
+			if (cause != null) {
+				var localMessage = cause.getLocalizedMessage();
+				if (localMessage == null) {
+					log.log(Level.INFO, "Localized message of cause of exception is null", e); //NON-NLS
+					localMessage = cause.getMessage();
+					if (localMessage == null) {
+						log.log(Level.INFO, "Message of cause of exception is null", e); //NON-NLS
+						localMessage = cause.toString();
+					}
+				}
+				process(localMessage);
+			} else {
+				log.log(Level.INFO, "Cause of exception is null", e); //NON-NLS
+				String localMessage = e.getLocalizedMessage();
+				if (localMessage == null) {
+					log.log(Level.INFO, "Localized message of exception is null", e); //NON-NLS
+					localMessage = e.getMessage();
+					if (localMessage == null) {
+						log.log(Level.INFO, "Message of exception is null", e); //NON-NLS
+						localMessage = e.toString();
+					}
+				}
+				process(localMessage);
+			}
 		}
+	}
+
+	private void process(String... chunks) {
+		process(List.of(chunks));
 	}
 
 	protected void fireOperationStatusChanged(OperationStatus status) {
@@ -139,8 +173,12 @@ public abstract class Operation extends SwingWorker<String, String> implements P
 		}
 	}
 
-	void print(String str) {
-		publish(str);
+	protected void print(String str) {
+		if (GraphicsEnvironment.isHeadless()) {
+			IO.print(str);
+		} else {
+			publish(str);
+		}
 	}
 
 	/// execute the given process and send its outputs
