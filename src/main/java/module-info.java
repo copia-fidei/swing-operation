@@ -9,6 +9,7 @@ module com.epau.util.swing.operation {
 
 	exports com.epau.util.swing.operation;
 	exports com.epau.util.swing.operation.examples;
+	exports com.epau.util.swing.operation.imp;
 
 	requires com.epau.util.nls;
 	opens com.epau.util.swing.operation to com.epau.util.nls;
